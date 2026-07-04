@@ -10,7 +10,32 @@ A starter independent author bookstore for listing books, linking to sales pages
 - Buy / preorder buttons for each book
 - A built-in book assistant that answers from the catalog and FAQ data
 - Mobile-friendly design
+- Cloudflare Pages-ready static deployment
 - No build step required
+
+## Cloudflare Pages setup
+
+This repository is ready for Cloudflare Pages.
+
+Use these settings when creating the Cloudflare Pages project:
+
+```text
+Framework preset: None
+Build command: Leave blank
+Build output directory: /
+Root directory: /
+Production branch: main
+```
+
+Included Cloudflare files:
+
+```text
+wrangler.toml   Cloudflare project metadata
+_headers        Basic browser/security/cache headers
+_redirects      Fallback route to index.html
+```
+
+Because this is a plain static website, Cloudflare does not need to run npm, install dependencies, or build anything.
 
 ## How to add or edit books
 
@@ -62,7 +87,7 @@ The assistant in `script.js` reads from:
 
 To improve answers, add stronger descriptions, themes, questions, and FAQ entries in `books.js`.
 
-## Future upgrade: real AI chat
+## Future upgrade: real AI chat on Cloudflare
 
 The current assistant is safe and simple because it runs completely in the browser. Later, it can be upgraded to a real AI assistant that searches:
 
@@ -73,12 +98,12 @@ The current assistant is safe and simple because it runs completely in the brows
 - Bible study notes
 - Customer support FAQ
 
-Recommended future architecture:
+Recommended Cloudflare architecture:
 
 1. Keep public book metadata in `books.js` or a CMS.
-2. Store deeper book notes in a private knowledge base.
-3. Add a serverless API route through Netlify, Cloudflare Workers, or Vercel.
-4. Connect the API route to an AI model.
+2. Store deeper book notes in Cloudflare D1, R2, Workers KV, or Vectorize.
+3. Add a Cloudflare Pages Function or Worker API route.
+4. Connect the API route to Workers AI, OpenAI, Anthropic, or another model.
 5. Return answers only from approved book/source material.
 
 ## Suggested next files to add
@@ -87,15 +112,11 @@ Recommended future architecture:
 /images/                Book covers and author photos
 /excerpts/              Sample chapter PDFs or HTML pages
 /admin-notes/           Private planning notes, not for public deployment
+/functions/api/chat.js  Future Cloudflare Pages Function for real AI chat
 ```
 
 ## Deploying
 
-This is a static site. You can deploy it with:
+Recommended deployment: Cloudflare Pages.
 
-- GitHub Pages
-- Netlify
-- Cloudflare Pages
-- Vercel
-
-For GitHub Pages, set the Pages source to the `main` branch and root folder.
+You can also deploy this static site with GitHub Pages, Netlify, or Vercel, but the repository is now configured primarily for Cloudflare Pages.
