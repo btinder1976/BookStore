@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects
+# Keep all normal static files working, and send unknown routes back to the homepage.
+/* /index.html 200
