@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brandon Tinder Books | Stories, Studies, and Creative Projects</title>
+    <meta
+      name="description"
+      content="Browse Brandon Tinder's books, learn about each title, and ask questions about the stories, studies, and creative projects."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Brandon Tinder Books home">
+        <span class="brand-mark">BT</span>
+        <span>
+          <strong>Brandon Tinder Books</strong>
+          <small>Stories • Studies • Imagination</small>
+        </span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#books">Books</a>
+        <a href="#ask">Ask about a book</a>
+        <a href="#author">Author</a>
+        <a class="nav-button" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-pad">
+        <div class="hero-copy">
+          <p class="eyebrow">Independent author bookstore</p>
+          <h1>A home for every book, series, study, and story I create.</h1>
+          <p class="hero-text">
+            Browse current and upcoming titles, find the right book for your family or study group,
+            and use the book assistant to ask questions about characters, themes, reading order, and more.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#books">Browse books</a>
+            <a class="button ghost" href="#ask">Ask the book assistant</a>
+          </div>
+          <div class="hero-stats" aria-label="Store highlights">
+            <span><strong id="bookCount">0</strong> books listed</span>
+            <span><strong>24/7</strong> book Q&amp;A</span>
+            <span><strong>Direct</strong> purchase links</span>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Featured book preview">
+          <div class="book-stack">
+            <div class="stack-book one">Gold Rush</div>
+            <div class="stack-book two">Bible Study</div>
+            <div class="stack-book three">Adventure</div>
+          </div>
+          <div class="hero-note">
+            <h2>Coming together in one store</h2>
+            <p>Books can link to Amazon KDP, Gumroad, Stripe Checkout, PayPal, Etsy, or a local order form.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad store-toolbar" aria-labelledby="books-title">
+        <div>
+          <p class="eyebrow">Book catalog</p>
+          <h2 id="books-title">Find your next read</h2>
+        </div>
+        <div class="filters" aria-label="Book filters">
+          <label>
+            <span class="sr-only">Search books</span>
+            <input id="searchInput" type="search" placeholder="Search title, series, theme..." />
+          </label>
+          <label>
+            <span class="sr-only">Filter by category</span>
+            <select id="categoryFilter">
+              <option value="all">All categories</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section id="books" class="book-grid section-pad" aria-live="polite"></section>
+
+      <section id="ask" class="assistant-section section-pad" aria-labelledby="ask-title">
+        <div class="assistant-intro">
+          <p class="eyebrow">Book assistant</p>
+          <h2 id="ask-title">Ask questions about my books</h2>
+          <p>
+            This starter assistant answers from the book information stored in <code>books.js</code>.
+            Later, this can be upgraded to a full AI chat connected to book manuscripts, excerpts, PDFs,
+            FAQs, and customer support tools.
+          </p>
+          <div class="prompt-chips" aria-label="Example questions">
+            <button type="button" data-question="Which book should I read first?">Which book should I read first?</button>
+            <button type="button" data-question="Which books are good for kids?">Which books are good for kids?</button>
+            <button type="button" data-question="Tell me about the Gold Rush book.">Tell me about the Gold Rush book.</button>
+            <button type="button" data-question="Do you have Bible study books?">Do you have Bible study books?</button>
+          </div>
+        </div>
+        <div class="chat-card">
+          <div id="chatLog" class="chat-log" aria-live="polite">
+            <div class="message assistant-message">
+              <strong>Book Assistant</strong>
+              <p>Ask me about the books, series, age range, themes, reading order, or where to buy.</p>
+            </div>
+          </div>
+          <form id="chatForm" class="chat-form">
+            <label class="sr-only" for="chatInput">Ask about a book</label>
+            <input id="chatInput" type="text" placeholder="Ask about a title, theme, age range, or buying options..." autocomplete="off" />
+            <button class="button primary" type="submit">Ask</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="author" class="author-section section-pad">
+        <div>
+          <p class="eyebrow">About the author</p>
+          <h2>Books built around faith, family, adventure, learning, and imagination.</h2>
+        </div>
+        <p>
+          This bookstore is designed to grow with every project: children’s books, middle-grade adventures,
+          historical fiction, Bible studies, coloring books, and practical guides. Add new books in one data file,
+          paste in real purchase links, and keep building the author brand over time.
+        </p>
+      </section>
+
+      <section id="contact" class="contact-section section-pad">
+        <div>
+          <p class="eyebrow">Need help choosing?</p>
+          <h2>Questions, bulk orders, churches, schools, and family reading.</h2>
+          <p>Use this section for your real contact form, email list signup, or custom order request later.</p>
+        </div>
+        <a class="button primary" href="mailto:brandon.tinder@gmail.com">Email Brandon</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Brandon Tinder Books. All rights reserved.</p>
+      <p>Built for a growing independent bookstore.</p>
+    </footer>
+
+    <script src="books.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
